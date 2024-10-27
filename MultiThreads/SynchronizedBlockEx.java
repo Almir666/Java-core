@@ -1,5 +1,6 @@
 package MultiThreads;
 
+
 public class SynchronizedBlockEx {
     // Создаем объект класса Object как объект по которому мы будем синхронизироваться
     static final Object lock = new Object();

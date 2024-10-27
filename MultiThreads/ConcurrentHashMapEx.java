@@ -1,5 +1,7 @@
 package MultiThreads;
 
+import java.util.Collection;
+import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -13,6 +15,7 @@ public class ConcurrentHashMapEx {
         map.put(3, "Three");
         map.put(4, "Four");
         map.put(5, "Five");
+        System.out.println(map);
 
         Runnable runnable1 = () -> {
             Iterator<Integer> iterator = map.keySet().iterator();
@@ -43,5 +46,22 @@ public class ConcurrentHashMapEx {
         thr1.join();
         thr2.join();
         System.out.println(map);
+
+        Enumeration<String> list = map.elements();
+        
+        for(int i = 0; i < 5; i++) {
+            System.out.println(list.nextElement());
+        }
+
+        System.out.println(map.mappingCount());
+
+        Collection<String> values = map.values();
+        Object[] result = values.toArray();
+
+        System.out.println("--------------");
+
+        for(int i = 0; i < 5; i++) {
+            System.out.println(result[i]);
+        }
     }
 }
